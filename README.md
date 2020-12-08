@@ -15,3 +15,7 @@ Trigger the kitten bomb via some other script.
 ```javascript
 KittenBomb.detonate(window.body);
 ```
+## Credit for Kittens
+{placekitten} - Placeholder kitten images for developers
+https://placekitten.com/
+See https://placekitten.com/attribution.html for image credits.
