@@ -1,7 +1,6 @@
 # kitten-bomb
 A script to replace all images on your website with kittens. That is it.
 ## Install
-Requires jQuery
 Include the kitten-bomb script
 ```html
 <script src="kitten-bomb.js"></script>
@@ -13,7 +12,7 @@ Create a link to the hash `#kitten-bomb`
 ## Alternative Us
 Trigger the kitten bomb via some other script.
 ```javascript
-KittenBomb.detonate(window.body);
+KittenBomb.detonate();
 ```
 ## Credit for Kittens
 {placekitten} - Placeholder kitten images for developers
