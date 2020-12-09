@@ -3,7 +3,7 @@ A script to replace all images on your website with kittens. That is it.
 ## Install
 Include the kitten-bomb script
 ```html
-<script src="kitten-bomb.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/BrianWendt/kitten-bomb/kitten-bomb.js"></script>
 ```
 Create a link to the hash `#kitten-bomb`
 ```html
