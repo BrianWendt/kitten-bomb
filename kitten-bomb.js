@@ -18,18 +18,22 @@ let KittenBomb = {
     detonate: function () {
         console.log("a cute explosion");
         if (this.replace_img_src) {
-            Array.from(document.images).map((img) => {
-                img.src = this.src(img.naturalWidth, img.naturalHeight);
-                img.removeAttribute('srcset');
-                return img;
-            });
+            let nodes = Array.from(document.body.getElementsByTagName("img"));
+            for(var idx in nodes){
+                let node = nodes[idx];
+                node.src = this.src(node.clientWidth, node.clientHeight);
+                node.removeAttribute('srcset');
+            }
         }
         if (this.replace_background_img) {
-            Array.from(document.body.getElementsByTagName("*")).map((node) => {
+            // Only gets nodes that have style set... otherwise it take a very long time to iterate
+            let nodes = Array.from(document.body.getElementsByTagName("*[style]"));
+            for(let idx in nodes){
+                let node = nodes[idx];
                 if (window.getComputedStyle(node, null).getPropertyValue("background-image").toLowerCase().substr(0, 3) == "url") {
                     node.style.backgroundImage = 'url("' + this.src(node.clientWidth, node.clientHeight) + '")';
                 }
-            });
+            }
         }
     },
     src: function (w, h) {
