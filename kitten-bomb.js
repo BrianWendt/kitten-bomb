@@ -20,6 +20,7 @@ let KittenBomb = {
         if (this.replace_img_src) {
             Array.from(document.images).map((img) => {
                 img.src = this.src(img.naturalWidth, img.naturalHeight);
+                img.removeAttribute('srcset');
                 return img;
             });
         }
@@ -32,8 +33,16 @@ let KittenBomb = {
         }
     },
     src: function (w, h) {
-        return "https://placekitten.com/" + w + "/" + h;
+        return "https://placekitten.com/" + w + "/" + h + "?image=" + this.image();
     },
+    i: 1,
+    image: function(){
+        if(this.i+1 > 16){
+            this.i = 0;
+        }
+        this.i++;
+        return this.i;
+    }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
